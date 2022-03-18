@@ -10,7 +10,7 @@ project(
 
 find_package(SDL2 REQUIRED)
 
-set(SRC_REL main.cpp)
+set(SRC_REL main.cpp generator/generate.cpp)
 foreach(FILE ${SRC_REL})
     cmake_path(ABSOLUTE_PATH FILE BASE_DIRECTORY source NORMALIZE)
     list(APPEND SRC ${FILE})
