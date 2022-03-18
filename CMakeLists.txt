@@ -8,9 +8,14 @@ project(
     HOMEPAGE_URL "https://github.com/Phytolizer/voronoi"
 )
 
+find_package(SDL2 REQUIRED)
+
 set(SRC_REL main.cpp)
 foreach(FILE ${SRC_REL})
     cmake_path(ABSOLUTE_PATH FILE BASE_DIRECTORY source NORMALIZE)
     list(APPEND SRC ${FILE})
 endforeach()
 add_executable(voronoi ${SRC})
+target_compile_features(voronoi PRIVATE cxx_std_20)
+target_include_directories(voronoi PRIVATE include)
+target_link_libraries(voronoi PRIVATE SDL2::SDL2 SDL2::SDL2main)
